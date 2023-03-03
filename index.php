@@ -1,3 +1,6 @@
 <?php
-require('controller/controller.php')          // Llamada al controller que une la vista y el modelo.
+
+include('view/header.php');
+require('controller/listauser_controller.php');
+
 ?>

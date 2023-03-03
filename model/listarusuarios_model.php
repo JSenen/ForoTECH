@@ -15,3 +15,9 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
+$result = $dbh->query('SELECT nombre,apellidos FROM usuarios');
+$usuarios = array();
+while ($usuario = $result -> fetch()) {
+    $usuarios[] = $usuario;
+}
+?>

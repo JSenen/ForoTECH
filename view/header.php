@@ -7,6 +7,7 @@
     <title>Foro TECH</title>
 </head>
 <body>
+    <h1>FORO TECH</h1>
     
 </body>
 </html>
