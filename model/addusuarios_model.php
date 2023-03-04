@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
             echo "ERROR: " . $e->getMessage();
         }
 /* Una vez que han sido guardados, redirigimos a la p�gina de vista principal*/
-        header("Location: index.php");
+        header("Location: listuser.php");
 
 }else{
     renderForm('','','','','','');
