@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 03-03-2023 a las 21:48:10
+-- Tiempo de generación: 04-03-2023 a las 13:47:21
 -- Versión del servidor: 5.7.39
 -- Versión de PHP: 8.2.0
 
@@ -55,22 +55,31 @@ CREATE TABLE `temas` (
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
+  `id_temas` int(11) DEFAULT NULL,
+  `id_mensajes` int(11) DEFAULT NULL,
   `nombre` varchar(30) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(8) NOT NULL,
-  `role` varchar(13) NOT NULL DEFAULT 'user',
-  `id_temas` int(11) DEFAULT NULL,
-  `id_mensajes` int(11) DEFAULT NULL
+  `passwrd` varchar(8) NOT NULL,
+  `rol` varchar(13) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `password`, `role`, `id_temas`, `id_mensajes`) VALUES
-(1, 'Juan Senen', 'Garcia Saez', 'jsenen@email.com', 'admin', 'admin', NULL, NULL),
-(2, 'Ana', 'Rubinat Barriendos', 'ana@mail.com', '1234567A', 'user', NULL, NULL);
+INSERT INTO `usuarios` (`id`, `id_temas`, `id_mensajes`, `nombre`, `apellidos`, `email`, `passwrd`, `rol`) VALUES
+(1, NULL, NULL, 'Juan Senen', 'Garcia Saez', 'jsenen@email.com', 'admin', 'admin'),
+(2, NULL, NULL, 'Ana', 'Rubinat Barriendos', 'ana@mail.com', '1234567A', 'user'),
+(5, NULL, NULL, 'Antonio', 'Garcia Garcia', 'antonio@email.com', '1234', ''),
+(6, NULL, NULL, 'Gloria', 'Saez Fernandez', 'gloria@mail.com', '1234', 'admin'),
+(7, NULL, NULL, 'Josefa', 'Jimenez Gimenez', 'gi@email.com', '4321', ''),
+(8, NULL, NULL, 'Juan', 'Juan juan', 'jjj', '12345', ''),
+(9, NULL, NULL, 'aaa', 'aaaa', 'aaaaa', '123456', ''),
+(10, NULL, NULL, 'bbbb', 'bbbbb', 'bbbbb', 'bbbbb', ''),
+(11, NULL, NULL, 'S', 's', 's', 's', ''),
+(12, NULL, NULL, 'Q', 'q', 'q', 'q', 'user'),
+(13, NULL, NULL, 'e', 'e', 'e', 'e', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -119,7 +128,7 @@ ALTER TABLE `temas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
