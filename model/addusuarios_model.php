@@ -17,17 +17,16 @@ if (isset($_POST['submit'])) {
     $apellidos = htmlspecialchars($_POST['apellidos']);
     $email = htmlspecialchars($_POST['email']);
     $passwrd = htmlspecialchars($_POST['passwrd']);
-    $rol = htmlspecialchars($_POST['rol']);
+    
         try {
-            $stmt = $dbh->prepare("INSERT INTO usuarios (nombre, apellidos, email, passwrd, rol) VALUES (:nombre, :apellidos, :email, :passwrd, :rol)");
+            $stmt = $dbh->prepare("INSERT INTO usuarios (nombre, apellidos, email, passwrd) VALUES (:nombre, :apellidos, :email, :passwrd, )");
 
-            $stmt->bindParam(':nombre', $_POST['nombre'], PDO::PARAM_STR);
-            $stmt->bindParam(':apellidos', $_POST['apellidos'], PDO::PARAM_STR);
-            $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-            $stmt->bindParam(':passwrd', $_POST['passwrd'], PDO::PARAM_STR);
-            $stmt->bindParam(':rol', $_POST['rol'], PDO::PARAM_STR);
+                $stmt->bindParam(':nombre', $_POST['nombre'], PDO::PARAM_STR);
+                $stmt->bindParam(':apellidos', $_POST['apellidos'], PDO::PARAM_STR);
+                $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+                $stmt->bindParam(':passwrd', $_POST['passwrd'], PDO::PARAM_STR);
 
-            $stmt->execute();
+                $stmt->execute();
 
         }
 // guardamos los datos en la base de datos
@@ -35,7 +34,7 @@ if (isset($_POST['submit'])) {
             echo "ERROR: " . $e->getMessage();
         }
 /* Una vez que han sido guardados, redirigimos a la p�gina de vista principal*/
-        header("Location: listuser.php");
+        header("Location: index.php");
 
 }else{
     renderForm('','','','','','');

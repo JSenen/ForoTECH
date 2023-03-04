@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-	require 'model/conectionDB.php';
+	require '../model/conectionDB.php';
 	session_start();
  
 	if(!ISSET($_SESSION['user'])){
@@ -15,7 +15,7 @@
 <body>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="https://sourcecodester.com">Sourcecodester</a>
+			<a class="navbar-brand" href="#">Enlaces barra navegacion</a>
 		</div>
 	</nav>
 	<div class="col-md-3"></div>
@@ -34,7 +34,7 @@
         
 			?>
 			<h4><?php echo $fetch['nombre']?></h4>
-			<a href = "logo_out.php">Logout</a>
+			<a href = "../model/logo_out.php">Logout</a>
 		</div>
 	</div>
 </body>

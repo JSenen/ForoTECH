@@ -13,11 +13,12 @@
 		<h3 class="text-primary">PHP - PDO Login and Registration</h3>
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<?php if(isset($_SESSION['message'])): ?>
+		<!-- Campo de mensaje de nuevo registro -->
+		<?php if(isset($_SESSION['message'])): ?>
 				<div class="alert alert-<?php echo $_SESSION['message']['alert'] ?> msg"><?php echo $_SESSION['message']['text'] ?></div>
 			<script>
 				(function() {
-					// removing the message 3 seconds after the page load
+					// Despues de 3 segundos de cargar la página, el mensaje desaparece (Javascript)
 					setTimeout(function(){
 						document.querySelector('.msg').remove();
 					},3000)
@@ -25,11 +26,12 @@
 			</script>
 			<?php 
 				endif;
-				// clearing the message
+				// limpiamos el mensaje
 				unset($_SESSION['message']);
 			?>
-			<form action="login_query.php" method="POST">	
-				<h4 class="text-success">Login here...</h4>
+      <!-- Formulario de login -->
+			<form action="model/login_query.php" method="POST">	
+				<h4 class="text-success">Introduce nombre y contraseña...</h4>
 				<hr style="border-top:1px groovy #000;">
 				<div class="form-group">
 					<label>Nombre</label>
@@ -43,9 +45,12 @@
 				<div class="form-group">
 					<button class="btn btn-primary form-control" name="login">Login</button>
 				</div>
-				<a href="registration.php">Registration</a>
+
+        <!-- Enlace al registro de usuario -->
+				<a href="view/registration.php">Registrarse</a>
 			</form>
-		</div>
+		
+    </div>
 	</div>
 </body>
 </html>
