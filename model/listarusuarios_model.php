@@ -1,23 +1,8 @@
 <?php
-$dbname = "forotech";       //Nombre de la Base de Datos
-$user = "root";             // Usuario
-$password = "root";         // Contraseña
-$server = 'localhost';      // Dirección servidor
-$dbh ="";
+require ('conectionDB.php'); //Conexion a la base de datos
 
-// Con un array de opciones
-try {
-
-    $dsn = "mysql:host=$server;dbname=$dbname;charset=UTF8";
-    $dbh = new PDO($dsn, $user, $password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-} catch (PDOException $e) {
-    echo $e->getMessage();
+$result = $dbh->query('SELECT nombre,apellidos,email,passwrd FROM usuarios'); //Sentencia SQL
+$usuarios = array();                                            //Creamos array de usuarios
+while ($usuario = $result -> fetch()) {                         // Bucle recorre la BD
+    $usuarios[] = $usuario;                                     // Asigna usuarios en la array
 }
-$result = $dbh->query('SELECT nombre,apellidos FROM usuarios');
-$usuarios = array();
-while ($usuario = $result -> fetch()) {
-    $usuarios[] = $usuario;
-}
-?>
