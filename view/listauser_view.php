@@ -7,6 +7,7 @@
     <title>Foro TECH</title>
 </head>
 <body>
+    <a href="addusuarios.php">Nuevo usuario</a>
     <table>
         <tr>
             <th>Nombre</th>
